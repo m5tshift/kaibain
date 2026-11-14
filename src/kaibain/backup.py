@@ -187,7 +187,8 @@ def _connection(path, writable=False):
     # immutable is only used for a private, completed snapshot, never a live DB.
     with closing(sqlite3.connect(uri, uri=True, timeout=5, isolation_level=None)) as db:
         db.execute('PRAGMA trusted_schema=OFF')
-        db.enable_load_extension(False)
+        if hasattr(db, 'enable_load_extension'):  # Absent when built without extension loading (python.org macOS).
+            db.enable_load_extension(False)
         db.setlimit(sqlite3.SQLITE_LIMIT_LENGTH, MAX_DB_BYTES)
         start = time.monotonic()
         calls = 0
