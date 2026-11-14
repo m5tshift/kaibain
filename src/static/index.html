@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#b65b3e">
+  <title>Kaibain — пространство задач</title>
+  <script src="/theme.js"></script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/agents.css">
+  <link rel="stylesheet" href="/graph.css">
+  <script src="/agents-live.js" defer></script>
+  <script src="/readiness.js" defer></script>
+  <script src="/dialogue.js" defer></script>
+  <script src="/agents-run.js" defer></script>
+  <script src="/recovery.js" defer></script>
+  <script src="/projects.js" defer></script>
+  <script src="/result-review.js" defer></script>
+  <script src="/native.js" defer></script>
+  <link rel="stylesheet" href="/native.css">
+  <link rel="stylesheet" href="/projects.css">
+  <link rel="stylesheet" href="/readiness.css">
+  <link rel="stylesheet" href="/dialogue.css">
+  <link rel="stylesheet" href="/result-review.css">
+  <link rel="stylesheet" href="/recovery.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+  <aside class="sidebar">
+    <a class="brand" href="/" data-nav><span class="brand-mark">k<span>·</span></span>kaibain<span class="brand-dot">.</span></a>
+    <div class="workspace"><span class="workspace-icon">✳</span><div>Агентное пространство<small>Цель → агенты → результат</small></div></div>
+    <div class="nav-label">РАБОЧЕЕ ПРОСТРАНСТВО</div>
+    <nav aria-label="Основная навигация">
+      <a href="/" data-nav id="nav-goals"><span class="nav-icon">✳</span> Цели <span id="nav-count" class="nav-count">0</span></a>
+      <a href="/projects" data-nav id="nav-projects"><span class="nav-icon">▣</span> Проекты</a>
+      <a href="/board" data-nav id="nav-board"><span class="nav-icon">▥</span> Доска агентов</a>
+      <a href="/calendar" data-nav id="nav-calendar"><span class="nav-icon">▦</span> Календарь</a>
+      <a href="/agents" data-nav id="nav-agents"><span class="nav-icon">⌘</span> Граф агентов</a>
+      <a href="/settings" data-nav id="nav-settings"><span class="nav-icon">⚙</span> Настройки</a>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="agent-note"><span class="spark">✳</span><strong>Вы определяете результат</strong><p>Агенты планируют, выполняют<br>и передают работу на ревью.</p><a href="/settings" data-nav>Подключение агентов ↗</a></div>
+      <div class="local-note"><span class="live-dot"></span> Локально на вашем устройстве</div>
+      <div class="profile"><span class="avatar">Я</span><div>Моё пространство<small>Только для вас</small></div></div>
+    </div>
+  </aside>
+  <div class="app-shell">
+    <header class="topbar"><div class="breadcrumb">Рабочее пространство <span>/</span> <strong id="crumb">Доска задач</strong></div><div class="topbar-actions"><div class="sync-state" id="sync-state" role="status"><span class="live-dot"></span><span>Подключение…</span></div><button class="theme-toggle" type="button" data-action="spotlight" aria-label="Открыть поиск" aria-keyshortcuts="Space" title="Поиск · Пробел"><span aria-hidden="true">⌕</span></button><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Тёмная тема" aria-pressed="false" title="Переключить тему"><span aria-hidden="true">◐</span></button></div></header>
+    <main id="main" tabindex="-1"><div class="loading"><span class="spinner"></span> Загружаем задачи…</div></main>
+    <footer class="app-footer"><span>Меньше шума. Больше сделанного.</span><span>KAIBAIN <span class="footer-dot">/</span> LOCAL FIRST</span></footer>
+  </div>
+  <dialog id="modal" aria-labelledby="modal-title"></dialog>
+  <dialog id="spotlight" class="spotlight" aria-label="Быстрый поиск">
+    <div class="spotlight-input-row"><span class="spotlight-glass" aria-hidden="true">⌕</span><input id="spotlight-input" type="text" role="combobox" aria-label="Поиск задач" aria-autocomplete="list" aria-controls="spotlight-results" aria-expanded="true" placeholder="Найти задачу…" autocomplete="off" spellcheck="false"><button id="spotlight-close" type="button" aria-label="Закрыть поиск"><kbd>esc</kbd></button></div>
+    <div id="spotlight-caption" class="spotlight-caption" role="status" aria-live="polite"></div>
+    <div id="spotlight-results" class="spotlight-results" role="listbox" aria-label="Найденные задачи"></div>
+    <div class="spotlight-footer"><span><kbd>↑</kbd><kbd>↓</kbd> выбрать <kbd>↵</kbd> открыть</span><span>KAIBAIN <span aria-hidden="true">/</span> ПОИСК</span></div>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

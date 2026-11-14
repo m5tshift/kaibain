@@ -1,0 +1,17 @@
+{
+  "repo": "/absolute/path/to/kaibain",
+  "commit": null,
+  "files": [
+    "src/kaibain/__init__.py",
+    "src/kaibain/store.py",
+    "src/kaibain/recovery.py",
+    "src/kaibain/result_review.py",
+    "tests/test_native.py"
+  ],
+  "writable": ["src/kaibain/store.py"],
+  "checks": ["python", "-m", "unittest", "discover", "-s", "tests", "-p", "test_native.py", "-v"],
+  "acceptance": [
+    "Preserve agents-native ownership: only the user accepts or returns a root goal.",
+    "Preserve task version checks, direct-child progress, cycle protection and existing data."
+  ]
+}

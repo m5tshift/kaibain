@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "kaibain": {
+      "type": "stdio",
+      "command": "/path/to/kaibain/.venv/bin/python",
+      "args": ["/path/to/kaibain/run.py", "mcp"]
+    }
+  }
+}

@@ -1,0 +1,7 @@
+# macOS: replace /path/to/kaibain with the absolute project directory.
+# Add this section to ~/.codex/config.toml.
+[mcp_servers.kaibain]
+command = "/path/to/kaibain/.venv/bin/python"
+args = ["/path/to/kaibain/run.py", "mcp"]
+startup_timeout_sec = 20
+tool_timeout_sec = 30

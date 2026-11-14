@@ -1,0 +1,89 @@
+# Machine-local application state (never copy between installations).
+.local/
+/data/
+.agent-runs/
+
+# Generated MCP configuration; examples/claude*.mcp.json stay public.
+.mcp.json
+*.local.json
+*.local.toml
+*.local.yaml
+*.local.yml
+.claude/settings.local.json
+
+# Environment secrets; sanitized templates may be committed.
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+*.key
+*.pem
+*.p12
+*.pfx
+
+# SQLite databases, including custom --db locations and transaction files.
+*.db
+*.db-wal
+*.db-shm
+*.db-journal
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+*.sqlite-journal
+*.sqlite3
+*.sqlite3-wal
+*.sqlite3-shm
+*.sqlite3-journal
+
+# Private backup exports. Keep arbitrary archives outside the repository.
+/backups/
+.kaibain-backup-*/
+backup.zip
+*.kaibain-backup.zip
+
+# Python environments, caches and build outputs.
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.tox/
+.nox/
+.eggs/
+*.egg-info/
+/build/
+/dist/
+
+# Local run evidence and test/browser outputs (not published).
+docs/evaluations/
+test-results/
+playwright-report/
+blob-report/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+# Local dependencies and downloaded model weights.
+node_modules/
+.ollama/
+*.gguf
+*.safetensors
+
+# Logs, temporary files, editor and operating-system metadata.
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+.idea/
+.DS_Store
+._*
+Thumbs.db
+Desktop.ini
