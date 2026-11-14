@@ -22,7 +22,7 @@ def assessment(decision='accept'):
 
 class IndependentReviewTests(unittest.TestCase):
     def setUp(self):
-        self.temp=tempfile.TemporaryDirectory();folder=Path(self.temp.name)
+        self.temp=tempfile.TemporaryDirectory();folder=Path(self.temp.name).resolve()  # macOS: /var -> /private/var
         self.store=Store(folder/'tasks.sqlite3');self.agent=Store(self.store.path,source='agent')
         goal=self.store.create('Fix it');self.goal=goal
         self.project={'repo':str(folder),'commit':'a'*40,'files':['app.py'],'writable':['app.py'],
@@ -68,7 +68,7 @@ class IndependentReviewTests(unittest.TestCase):
         self.assertEqual(self.store.agent_runs()[0]['status'],'cancelled')
 
     def test_review_is_bound_to_untampered_export_clean_hashes_and_exact_evidence(self):
-        folder=Path(self.temp.name)/'development';files=folder/'result/files';files.mkdir(parents=True)
+        folder=Path(self.temp.name).resolve()/'development';files=folder/'result/files';files.mkdir(parents=True)
         data=b'def add(a,b): return a-b\n';(files/'app.py').write_bytes(data)
         sha=lambda body:hashlib.sha256(body).hexdigest()
         patch=b'+def add(a,b): return a-b\n';(folder/'result/changes.diff').write_bytes(patch)

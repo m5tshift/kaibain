@@ -516,7 +516,8 @@ def inspect_backup(archive):
     """
     archive = _path(archive)
     with tempfile.TemporaryDirectory(prefix='kaibain-inspect-') as temporary:
-        return _extract(archive, Path(temporary))
+        # Private mkdtemp folder: resolve system links such as macOS /var -> /private/var.
+        return _extract(archive, Path(os.path.realpath(temporary)))
 
 
 def restore_backup(archive, destination_db):

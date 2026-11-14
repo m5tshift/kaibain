@@ -54,7 +54,7 @@ class CleanupFixture(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory(prefix='kaibain-cleanup-test-')
         self.addCleanup(self.temp.cleanup)
-        self.folder = Path(self.temp.name)
+        self.folder = Path(self.temp.name).resolve()  # macOS: /var -> /private/var
         self.store = Store(self.folder / 'tasks.sqlite3')
         self.adapter = self.folder / 'fixed_adapter.py'
         self.adapter.write_text(ADAPTER, encoding='utf8')

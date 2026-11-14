@@ -29,7 +29,7 @@ class BackupTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
-        self.folder = Path(self.temp.name)
+        self.folder = Path(self.temp.name).resolve()  # macOS: /var -> /private/var
         self.source = self.folder / 'source'
         self.source.mkdir()
         self.store = Store(self.source / 'tasks.sqlite3')
