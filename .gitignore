@@ -10,6 +10,7 @@
 *.local.yaml
 *.local.yml
 .claude/settings.local.json
+.claude/worktrees/
 
 # Environment secrets; sanitized templates may be committed.
 .env
@@ -83,6 +84,7 @@ node_modules/
 *.swo
 *~
 .idea/
+.vscode/
 .DS_Store
 ._*
 Thumbs.db
